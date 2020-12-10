@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   testflags.c                                        :+:      :+:    :+:   */
+/*   struct.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/08 16:01:46 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/10 12:38:07 by ldevilla         ###   ########lyon.fr   */
+/*   Created: 2020/12/10 08:47:43 by ldevilla          #+#    #+#             */
+/*   Updated: 2020/12/10 09:01:50 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "struct.h"
 
-int main()
+void    initCoord(Coord *test)
 {
-    int a = 15;
-    int *p = &a;
-    printf("%\n", p);
+    test->x = 0;
+    test->y = 0;    
+}
+
+int     main()
+{
+    Coord test;
+    
+    initCoord(&test);
+    printf("x = %d\ny = %d\n\n", test.x, test.y);
+    test.x = 10;
+    test.y = 20;
+    printf("x = %d\ny = %d\n", test.x, test.y);
+    return 0;
 }

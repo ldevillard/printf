@@ -3,14 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldevilla <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 17:25:31 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/07 14:34:11 by ldevilla         ###   ########lyon.fr   */
+/*   Updated: 2020/12/10 12:54:02 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ftprintf.h"
+#include "printf.h"
+
+int    analyse(char *str, va_list ap)
+{
+	int i;
+	int j;
+    
+	i = 0;
+	j = 0;
+    while (str[i] && !ft_ccheck("cspdiuxX", str[i]))
+        i++;
+    if (str[i] == 'c')
+	{
+        ft_putchar(va_arg(ap, int));
+		i ++;
+	}
+	return (i);
+}
 
 int	ft_printf(const char *str, ...)
 {
@@ -19,21 +36,25 @@ int	ft_printf(const char *str, ...)
 
 	i = 0;
 	va_start(ap, str);
+	if (!str)
+		return (0);
 	while (str[i])
 	{
-		while (str[i] == '%' && str[i + 1])
+		if (str[i] == '%' && str[i + 1])
 		{
-			if (str[i + 1] == 'c')
+			if (str[i + 1] == '%')
 			{
-				ft_putchar_fd(va_arg(ap, char), 0);
-				if(str[i + 2])
-					i += 2;
-				else
-					return (0);
-			} 	
+				ft_putchar(str[i]);
+				i += 2;
+			}
+			else
+				i += analyse((char *)(&str[i]), ap);
 		}
-		ft_putchar_fd(str[i], 0);
-		i++;
+		else
+		{
+			ft_putchar(str[i]);
+			i++;
+		}
 	}	
 
 	va_end(ap);
@@ -44,9 +65,8 @@ int	main(int ac, char **av)
 {
 	(void)ac;
 	(void)av;
-	char c;	
-
-	c = 'L';
-	ft_printf("Salut je test ce caractere : %c %c et %c%c%c", c, 'T', 'A', 'B', 'C');
+	
+	ft_printf("Hey boy %c et toi %c aussi %c%c%     c\n", 'A', 'B', 'C', 'D', 'E');
+	printf("Hey boy %c et toi %c aussi %c%c%     c\n", 'A', 'B', 'C', 'D', 'E');
 	return (0);
 }

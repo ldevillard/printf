@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   testflags.c                                        :+:      :+:    :+:   */
+/*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/08 16:01:46 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/10 12:38:07 by ldevilla         ###   ########lyon.fr   */
+/*   Created: 2020/12/10 08:46:04 by ldevilla          #+#    #+#             */
+/*   Updated: 2020/12/10 08:51:00 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#ifndef STRUCT_H
+# define STRUCT_H
 
-int main()
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct Coord
 {
-    int a = 15;
-    int *p = &a;
-    printf("%\n", p);
-}
+    int x;
+    int y;
+} Coord;
+
+#endif
