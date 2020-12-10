@@ -6,7 +6,7 @@
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 15:36:31 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/10 14:17:08 by ldevilla         ###   ########lyon.fr   */
+/*   Updated: 2020/12/10 14:34:20 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int	main(int ac, char **av)
 	(void)ac;
 	(void)av;
 	
-	ft_printf("Hey boy %-0.c tu as %d ans\n", 'A', -214748364899);
+	ft_printf("Hey boy %-0.c\n", 'A');
 	//printf("Hey boy %c tu as %d ans\n", 'A', -214748364899);
 	
 	
