@@ -6,7 +6,7 @@
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 15:36:31 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/10 12:29:47 by ldevilla         ###   ########lyon.fr   */
+/*   Updated: 2020/12/10 13:23:28 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,5 @@ int main()
 
     i = 'v';
     ft_printf("Salut ca va ? %%  %c", i);
-    return (0);    
+    return (0);
 }
