@@ -6,7 +6,7 @@
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 15:24:41 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/10 14:15:14 by ldevilla         ###   ########lyon.fr   */
+/*   Updated: 2020/12/10 15:00:46 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct DataValues
     int     len;
     int     index;
     bool    flag_0;
-    bool    flag_moin;
+    bool    flag_minus;
     bool    flag_point;
     bool    flag_star;
     char    type;
