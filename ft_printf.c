@@ -6,26 +6,35 @@
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 15:36:31 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/10 15:36:26 by ldevilla         ###   ########lyon.fr   */
+/*   Updated: 2020/12/10 16:32:19 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
-#include <stdio.h>
 
-void    print_struct(Data *Values)
+char    *pars(char *flags, va_list ap, Data *Values)
 {
-    printf("Len : %d\n", Values->len);
-    printf("Type : %c\n", Values->type);
-   /* if (Values->flag_0 == 1)
-            printf("Flag = 0\n");
-    if (Values->flag_moin == 1)
-            printf("Flag = -\n");
-    if (Values->flag_star == 1)
-            printf("Flag = *\n");
-    if (Values->flag_point == 1)
-            printf("Flag = .\n");
-    */
+    char    *dest;
+
+    dest = NULL;
+    if (Values->type == 'c')
+        dest = set_c(ap, dest); 
+    else if (Values->type == 's')
+        dest = set_s(ap, dest);
+    else if (Values->type == 'd')
+        dest = set_d(ap, dest);
+    /*else if (Values->type == 'p')
+    
+    else if (Values->type == 'i')
+    
+    else if (Values->type == 'u')
+    
+    else if (Values->type == 'x')
+    
+    else if (Values->type == 'X')*/
+    printf("DEST = %s\n", dest);
+    free(flags);
+    return (dest);
 }
 
 char    *analyse(char *str, va_list ap)
@@ -63,15 +72,17 @@ char    *analyse(char *str, va_list ap)
     }
     flags[i] = '\0';
     //print_struct(&Values);
-    return (flags);
+    return (pars(flags, ap, &Values));
 }
 
 int	ft_printf(const char *str, ...)
 {
 	int i;
 	va_list ap;
+    char    *tmp;
 
 	i = 0;
+    tmp = NULL;
 	va_start(ap, str);
 	if (!str)
 		return (0);
@@ -86,18 +97,16 @@ int	ft_printf(const char *str, ...)
 			}
 			else
             {
-				printf("FLAGS : %s\n", analyse((char *)(&str[i]), ap));
+                tmp = analyse((char *)&str[i], ap);
+				ft_putstr(tmp);
                 i++;
             }
 		}
 		else
-		{
-			ft_putchar(str[i]);
-			i++;
-		}
+            ft_putchar(str[i++]);
 	}	
-
 	va_end(ap);
+    free(tmp);
 	return (0);
 }
 
@@ -106,7 +115,9 @@ int	main(int ac, char **av)
 	(void)ac;
 	(void)av;
 	
-	ft_printf("C : N=%-0.*c P=%*.c Q=%89c\n", 'N', 'P', 'Q');
+    char str[] = "test";
+
+	ft_printf("Salut ca va, %c je m'appelle %d%d %s\n", 'E', -42, 4, str);
 	//printf("Hey boy %c tu as %d ans\n", 'A', -214748364899);
 	
 	

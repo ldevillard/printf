@@ -6,7 +6,7 @@
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 15:24:41 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/10 15:00:46 by ldevilla         ###   ########lyon.fr   */
+/*   Updated: 2020/12/10 16:23:14 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdarg.h>
 # include "libft/libft.h"
 # include <stdbool.h>
+# include <stdio.h>
 
 typedef struct DataValues
 {
@@ -31,5 +32,11 @@ typedef struct DataValues
 } Data;
 
 int     ft_printf(const char *str, ...);
+void    print_struct(Data *Values);
+char    *analyse(char *str, va_list ap);
+char    *pars(char *flags, va_list ap, Data *Values);
+char    *set_c(va_list ap, char *dest);
+char    *set_s(va_list ap, char *dest);
+char    *set_d(va_list ap, char *dest);
 
 #endif
