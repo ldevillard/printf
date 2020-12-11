@@ -6,7 +6,7 @@
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 15:36:31 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/11 11:51:08 by ldevilla         ###   ########lyon.fr   */
+/*   Updated: 2020/12/11 12:00:01 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void    ft_pars(Data *Values, va_list ap, char *str)
             Values->flags[j++] = '0';
         if (str[i] == '*')
             Values->width += va_arg(ap, int);
-        if (ft_isdigit(str[i]))
+        if (ft_isdigit(str[i]) && !Values->width)
             Values->width += ft_atoi(&str[i]);
         if (str[i] == '.')
             Values->prec = 1;
@@ -80,7 +80,7 @@ int	main(int ac, char **av)
 	
     //char str[] = "test";
 
-	ft_printf("Hey boyy %% logan %9d");
+	ft_printf("Hey boyy %% logan %-09856d");
 	//printf("Hey boy %c tu as %d ans\n", 'A', -214748364899);
 	
 	
