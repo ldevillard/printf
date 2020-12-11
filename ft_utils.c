@@ -6,7 +6,7 @@
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 12:11:07 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/10 16:28:44 by ldevilla         ###   ########lyon.fr   */
+/*   Updated: 2020/12/11 09:13:13 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,26 @@ void    print_struct(Data *Values)
     */
 }
 
-char    *set_c(va_list ap, char *dest)
+char    *set_c(va_list ap, char *dest, char *flags)
 {
+    int i;
+    int j;
+
+    i = 0;
+    j = 0;
+    //printf ("Flags : %s\n", flags);
+    if (flags[0] == '0')
+        return (NULL);
+    if (ft_isdigit(flags[0]) || ft_isdigit(flags[1]))
+    {
+        i = ft_atoi(flags);
+        if (!(dest = malloc(sizeof(char) * (i + 1))))
+            return (NULL);
+        while (j < i)
+            dest[j++] = ' ';
+        dest[j] = va_arg(ap, int);
+        return (dest);
+    }
     dest = malloc(sizeof(char) * 2);
     if (!dest)
         return (NULL);
@@ -38,10 +56,6 @@ char    *set_c(va_list ap, char *dest)
 
 char    *set_s(va_list ap, char *dest)
 {
-   // dest = malloc(sizeof(char) * ft_strlen((va_arg(ap, char *))));
-    //if (!dest)
-      //  return (NULL);
-    //printf("ARG : %s\n", va_arg(ap, char *));
     dest = ft_strdup(va_arg(ap, char *));
     return (dest);
 }

@@ -6,7 +6,7 @@
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 15:36:31 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/10 16:32:19 by ldevilla         ###   ########lyon.fr   */
+/*   Updated: 2020/12/11 09:13:30 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char    *pars(char *flags, va_list ap, Data *Values)
 
     dest = NULL;
     if (Values->type == 'c')
-        dest = set_c(ap, dest); 
+        dest = set_c(ap, dest, flags); 
     else if (Values->type == 's')
         dest = set_s(ap, dest);
     else if (Values->type == 'd')
@@ -32,7 +32,7 @@ char    *pars(char *flags, va_list ap, Data *Values)
     else if (Values->type == 'x')
     
     else if (Values->type == 'X')*/
-    printf("DEST = %s\n", dest);
+    //printf("DEST = %s\n", dest);
     free(flags);
     return (dest);
 }
@@ -99,7 +99,7 @@ int	ft_printf(const char *str, ...)
             {
                 tmp = analyse((char *)&str[i], ap);
 				ft_putstr(tmp);
-                i++;
+                i += 2;
             }
 		}
 		else
@@ -115,9 +115,9 @@ int	main(int ac, char **av)
 	(void)ac;
 	(void)av;
 	
-    char str[] = "test";
+    //char str[] = "test";
 
-	ft_printf("Salut ca va, %c je m'appelle %d%d %s\n", 'E', -42, 4, str);
+	ft_printf("\n\n\nSalut ca va, je m'appelle %s et j'ai %d ans !, j'adore les %10c\n\n\n", "Logan", 18, 'P');
 	//printf("Hey boy %c tu as %d ans\n", 'A', -214748364899);
 	
 	

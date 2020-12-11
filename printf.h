@@ -6,7 +6,7 @@
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 15:24:41 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/10 16:23:14 by ldevilla         ###   ########lyon.fr   */
+/*   Updated: 2020/12/11 08:59:11 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int     ft_printf(const char *str, ...);
 void    print_struct(Data *Values);
 char    *analyse(char *str, va_list ap);
 char    *pars(char *flags, va_list ap, Data *Values);
-char    *set_c(va_list ap, char *dest);
+char    *set_c(va_list ap, char *dest, char *flags);
 char    *set_s(va_list ap, char *dest);
 char    *set_d(va_list ap, char *dest);
 

@@ -6,7 +6,7 @@
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 16:01:46 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/10 12:38:07 by ldevilla         ###   ########lyon.fr   */
+/*   Updated: 2020/12/11 09:10:26 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,12 @@
 
 int main()
 {
-    int a = 15;
-    int *p = &a;
-    printf("%\n", p);
+    int a = 155;
+  //  int *p = &a;
+    //printf("%.5p\n", p);
+    printf("%d\n", a);
+    printf("%*d\n",10, a);
+    //printf("%-05d\n", a);
+    printf("%05d\n", a);
+    printf("%-20c\n", 'A');
 }
