@@ -6,7 +6,7 @@
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 15:36:31 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/11 10:43:06 by ldevilla         ###   ########lyon.fr   */
+/*   Updated: 2020/12/11 11:51:08 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,26 @@
 
 void    ft_pars(Data *Values, va_list ap, char *str)
 {
-    
+    int i;
+    int j;
+
+    i = Values->i;
+    j = 0;
+    while (!ft_ccheck("cspdiuxX", str[i]))
+    {
+        if (str[i] == '-')
+            Values->flags[j++] = '-';
+        else if (str[i] == '0')
+            Values->flags[j++] = '0';
+        if (str[i] == '*')
+            Values->width += va_arg(ap, int);
+        if (ft_isdigit(str[i]))
+            Values->width += ft_atoi(&str[i]);
+        if (str[i] == '.')
+            Values->prec = 1;
+        i++;
+    }
+    Values->type = str[i];
 }
 
 int	ft_printf(const char *str, ...)
@@ -38,9 +57,9 @@ int	ft_printf(const char *str, ...)
 			}
 			else
             {
-                ft_pars(&Values, ap, &str[Values.i])
+                ft_pars(&Values, ap, (char *)str);
 				//while (str[Values.i] != Values.type)
-                //Values.i++;
+                Values.i++;
             }
 		}
 		else
@@ -61,7 +80,7 @@ int	main(int ac, char **av)
 	
     //char str[] = "test";
 
-	ft_printf("Hey boyy %% lakdgnio\n");
+	ft_printf("Hey boyy %% logan %9d");
 	//printf("Hey boy %c tu as %d ans\n", 'A', -214748364899);
 	
 	
