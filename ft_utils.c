@@ -6,7 +6,7 @@
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 12:11:07 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/11 10:36:52 by ldevilla         ###   ########lyon.fr   */
+/*   Updated: 2020/12/11 13:04:57 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,8 @@ void    ft_print_struct(Data *Values)
     ft_putchar('\n');
     ft_putstr("i : ");
     ft_putnbr(Values->i);
+    ft_putchar('\n');
+    ft_putstr("TMP : ");
+    ft_putstr(Values->tmp);
     ft_putchar('\n');
 }

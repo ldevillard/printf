@@ -6,11 +6,17 @@
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 15:36:31 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/11 12:00:01 by ldevilla         ###   ########lyon.fr   */
+/*   Updated: 2020/12/11 13:48:37 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
+
+void    ft_analyse_data(Data *Values, va_list ap)
+{
+    if (Values->type == 'd')
+        ft_print_d(Values, ap);
+}
 
 void    ft_pars(Data *Values, va_list ap, char *str)
 {
@@ -19,6 +25,7 @@ void    ft_pars(Data *Values, va_list ap, char *str)
 
     i = Values->i;
     j = 0;
+    ft_struct_reinit(Values);
     while (!ft_ccheck("cspdiuxX", str[i]))
     {
         if (str[i] == '-')
@@ -34,6 +41,7 @@ void    ft_pars(Data *Values, va_list ap, char *str)
         i++;
     }
     Values->type = str[i];
+    ft_analyse_data(Values, ap);
 }
 
 int	ft_printf(const char *str, ...)
@@ -58,7 +66,9 @@ int	ft_printf(const char *str, ...)
 			else
             {
                 ft_pars(&Values, ap, (char *)str);
-				//while (str[Values.i] != Values.type)
+                //ft_print_struct(&Values);
+				while (str[Values.i] != Values.type)
+                    Values.i++;
                 Values.i++;
             }
 		}
@@ -68,7 +78,7 @@ int	ft_printf(const char *str, ...)
             Values.print++;
         }
 	}	
-    ft_print_struct(&Values);
+   // ft_print_struct(&Values);
 	va_end(ap);
 	return (Values.print);
 }
@@ -80,7 +90,8 @@ int	main(int ac, char **av)
 	
     //char str[] = "test";
 
-	ft_printf("Hey boyy %% logan %-09856d");
+	ft_printf("Hey boyy %% logan %-*d\n",5, 10);
+    printf("Hey boyy %% logan %-*%\n",5);
 	//printf("Hey boy %c tu as %d ans\n", 'A', -214748364899);
 	
 	
