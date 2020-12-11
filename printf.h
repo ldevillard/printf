@@ -6,7 +6,7 @@
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 15:24:41 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/11 08:59:11 by ldevilla         ###   ########lyon.fr   */
+/*   Updated: 2020/12/11 10:41:43 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,18 @@
 
 typedef struct DataValues
 {
-    int     len;
-    int     index;
-    bool    flag_0;
-    bool    flag_minus;
-    bool    flag_point;
-    bool    flag_star;
+    int     print;
+    char    flags[3];
+    int     prec;
+    int     width;
     char    type;
+    int     len;
+    int     i;
 } Data;
 
 int     ft_printf(const char *str, ...);
-void    print_struct(Data *Values);
-char    *analyse(char *str, va_list ap);
-char    *pars(char *flags, va_list ap, Data *Values);
-char    *set_c(va_list ap, char *dest, char *flags);
-char    *set_s(va_list ap, char *dest);
-char    *set_d(va_list ap, char *dest);
+void    ft_print_struct(Data *Values);
+void    ft_struct_init(Data *Values);
+void    ft_pars(Data *Values, va_list ap, char *str);
 
 #endif
