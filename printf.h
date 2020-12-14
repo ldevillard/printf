@@ -6,7 +6,7 @@
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 15:24:41 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/11 13:28:48 by ldevilla         ###   ########lyon.fr   */
+/*   Updated: 2020/12/14 10:07:05 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,10 @@
 typedef struct DataValues
 {
     int     print;
-    char    flags[3];
-    int     prec;
+    int     zero;
+    int     star;
+    int     minus;
+    int     dot;
     int     width;
     char    type;
     int     len;
@@ -37,7 +39,8 @@ void    ft_print_struct(Data *Values);
 void    ft_struct_init(Data *Values);
 void    ft_pars(Data *Values, va_list ap, char *str);
 void    ft_struct_reinit(Data *Values);
-void    ft_analyse_data(Data *Values, va_list ap);
-void    ft_print_d(Data *Values, va_list ap);
+int     ft_init_dot(char *str, Data *Values, va_list ap);
+void	ft_init_star(va_list ap, Data *Values);
+void    ft_init_digit(char c, Data *Values);
 
 #endif
