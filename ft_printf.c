@@ -6,16 +6,23 @@
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 15:36:31 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/14 10:34:11 by ldevilla         ###   ########lyon.fr   */
+/*   Updated: 2020/12/14 14:58:35 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-/*void    ft_analyse_data(Data *Values, va_list ap)
+void	ft_analyse(Data *Values, va_list ap)
 {
-
-}*/
+	if (Values->type == 'c')
+		ft_print_c(Values, va_arg(ap, int));
+	else if (Values->type == '%')
+		ft_print_pourcent(Values);
+	else if (Values->type == 's')
+		ft_print_str(Values, va_arg(ap, char *));
+	/*else if (Values->type == 'd' || Values->type == 'i')
+		ft_print_d(Values, va_arg(ap, int));*/
+}
 
 void    ft_pars(Data *Values, va_list ap, char *str)
 {
@@ -45,8 +52,8 @@ void    ft_pars(Data *Values, va_list ap, char *str)
 		}
 		i++;
 	}
-    //Values->type = str[i];
-    //ft_analyse_data(Values, ap);
+	Values->i = i;
+    Values->type = str[i];
 }
 
 int	ft_printf(const char *str, ...)
@@ -64,10 +71,14 @@ int	ft_printf(const char *str, ...)
 		{
             Values.i++;
             ft_pars(&Values, ap, (char *)str);
-            ft_print_struct(&Values);
-			while (str[Values.i] != Values.type)
-                Values.i++;
-            Values.i++;
+            //ft_print_struct(&Values);
+			if (ft_ccheck("cspdiuxX%", str[Values.i]))
+				ft_analyse(&Values, ap);
+			else
+			{
+				ft_putchar(str[Values.i++]);
+            	Values.print++;
+			}
 		}
 		else
         {
@@ -84,12 +95,13 @@ int	main(int ac, char **av)
 {
 	(void)ac;
 	(void)av;
-    //char str[] = "test";
-
-	ft_printf("Hey boyy %012.*d",12, 5);
-	printf("Hey boyy %012.*d",12, 5);
-	//printf("Hey boyy %15.*s", 5, "test");
-   // printf("Hey boyy %.4% logan %9.*d\n", 10, 30);
+	int i;
+	int j;
+	
+	i = ft_printf("Hey salut je m'apelle %*s\n",10,  "Logan"); 
+	j = printf("Hey salut je m'apelle %*s\n",10,  "Logan"); 
+	printf("\nEXPECTED : %d\n", j);
+	printf("YOU : %d\n", i);
 	
 	return (0);
 }

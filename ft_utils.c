@@ -6,7 +6,7 @@
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 12:11:07 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/14 09:59:05 by ldevilla         ###   ########lyon.fr   */
+/*   Updated: 2020/12/14 14:38:16 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,13 @@ void    ft_print_struct(Data *Values)
     ft_putstr("TMP : ");
     ft_putstr(Values->tmp);
     ft_putchar('\n');
+}
+
+void    ft_putstr_l(char *str, int lengt)
+{
+    int i;
+
+    i = 0;
+    while (str[i] && i < lengt)
+        ft_putchar(str[i++]);
 }

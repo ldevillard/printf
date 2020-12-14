@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_d.c                                       :+:      :+:    :+:   */
+/*   ft_width.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/14 12:09:07 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/14 12:18:25 by ldevilla         ###   ########lyon.fr   */
+/*   Created: 2020/12/14 11:45:07 by ldevilla          #+#    #+#             */
+/*   Updated: 2020/12/14 12:06:10 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-/*void    ft_print_d(int nbr, Data *Values)
+void    ft_width(int width, int i, int zero, Data *Values)
 {
-     Values->tmp = ft_itoa(nbr);
-     if (Values->dot == 0 && nbr == 0)
-     {
-
-     }
-}*/
+	while (width - i > 0)
+	{
+		if (zero)
+			ft_putchar('0');
+		else
+			ft_putchar(' ');
+		width--;
+		Values->print++;
+	}
+}
