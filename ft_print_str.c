@@ -6,11 +6,11 @@
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 13:23:35 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/14 14:56:01 by ldevilla         ###   ########lyon.fr   */
+/*   Updated: 2020/12/14 16:41:11 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 void    ft_print_str(Data *Values, char *str)
 {
@@ -18,7 +18,7 @@ void    ft_print_str(Data *Values, char *str)
         Values->dot = ft_strlen(str);
     if (Values->minus)
     {
-        if (Values->dot)
+        if (Values->dot >= 0)
         {
             ft_putstr_l(str, Values->dot);
             ft_width(Values->width, Values->dot, 0, Values);
@@ -31,7 +31,7 @@ void    ft_print_str(Data *Values, char *str)
             Values->print += ft_strlen(str);
         }
     }
-    else if (Values->dot)
+    else if (Values->dot >= 0)
     {
         ft_width(Values->width, Values->dot, 0, Values);
         ft_putstr_l(str, Values->dot);

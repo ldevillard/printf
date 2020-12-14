@@ -6,11 +6,11 @@
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 11:45:07 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/14 12:06:10 by ldevilla         ###   ########lyon.fr   */
+/*   Updated: 2020/12/14 15:40:02 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 void    ft_width(int width, int i, int zero, Data *Values)
 {

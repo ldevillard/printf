@@ -6,11 +6,11 @@
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 08:45:25 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/14 10:11:40 by ldevilla         ###   ########lyon.fr   */
+/*   Updated: 2020/12/14 16:46:17 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int    ft_init_dot(char *str, Data *Values, va_list ap)
 {
@@ -31,6 +31,7 @@ int    ft_init_dot(char *str, Data *Values, va_list ap)
             i++;
         }
     }
+
     return (i);
 }
 

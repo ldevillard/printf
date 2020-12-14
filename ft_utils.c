@@ -6,11 +6,11 @@
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 12:11:07 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/14 14:38:16 by ldevilla         ###   ########lyon.fr   */
+/*   Updated: 2020/12/14 15:39:57 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 void    ft_print_struct(Data *Values)
 {

@@ -6,11 +6,11 @@
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 15:36:31 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/14 14:58:35 by ldevilla         ###   ########lyon.fr   */
+/*   Updated: 2020/12/14 16:46:50 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 void	ft_analyse(Data *Values, va_list ap)
 {
@@ -90,7 +90,7 @@ int	ft_printf(const char *str, ...)
 	va_end(ap);
 	return (Values.print);
 }
-
+/*
 int	main(int ac, char **av)
 {
 	(void)ac;
@@ -98,10 +98,10 @@ int	main(int ac, char **av)
 	int i;
 	int j;
 	
-	i = ft_printf("Hey salut je m'apelle %*s\n",10,  "Logan"); 
-	j = printf("Hey salut je m'apelle %*s\n",10,  "Logan"); 
+	i = ft_printf("%s", "0");
+	j = printf("%s", "0"); 
 	printf("\nEXPECTED : %d\n", j);
 	printf("YOU : %d\n", i);
 	
 	return (0);
-}
+}*/
