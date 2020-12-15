@@ -6,7 +6,7 @@
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 15:36:31 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/15 12:18:09 by ldevilla         ###   ########lyon.fr   */
+/*   Updated: 2020/12/15 13:40:14 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int		ft_printf(const char *str, ...)
 		{
 			t_values.i++;
 			ft_pars(&t_values, ap, (char *)str);
+			//ft_print_struct(&t_values);
 			if (ft_ccheck("cspdiuxX%", str[t_values.i]))
 				ft_analyse(&t_values, ap);
 			else
@@ -90,8 +91,8 @@ int	main(int ac, char **av)
 	int i;
 	int j;
 	
-	i = ft_printf(" %-4.2d \n", 1);
-	j = printf(" %-4.2d \n", 1); 
+	i = ft_printf(" --0*%0*.0d*0 0*%0*.10d*0-- \n", -2, 0, 21, 1);
+	j = printf(" --0*%0*.0d*0 0*%0*.10d*0-- \n", -2, 0, 21, 1); 
 	printf("\nEXPECTED : %d\n", j);
 	printf("YOU : %d\n", i);
 	
