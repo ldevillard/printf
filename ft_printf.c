@@ -6,7 +6,7 @@
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 15:36:31 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/15 10:28:33 by ldevilla         ###   ########lyon.fr   */
+/*   Updated: 2020/12/15 12:18:09 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,8 @@ int	main(int ac, char **av)
 	int i;
 	int j;
 	
-	i = ft_printf(" %-3.s \n", NULL);
-	j = printf(" %-3.s \n", NULL); 
+	i = ft_printf(" %-4.2d \n", 1);
+	j = printf(" %-4.2d \n", 1); 
 	printf("\nEXPECTED : %d\n", j);
 	printf("YOU : %d\n", i);
 	
