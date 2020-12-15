@@ -6,7 +6,7 @@
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 15:36:31 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/15 13:40:14 by ldevilla         ###   ########lyon.fr   */
+/*   Updated: 2020/12/15 14:51:52 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,8 @@ int	main(int ac, char **av)
 	int i;
 	int j;
 	
-	i = ft_printf(" --0*%0*.0d*0 0*%0*.10d*0-- \n", -2, 0, 21, 1);
-	j = printf(" --0*%0*.0d*0 0*%0*.10d*0-- \n", -2, 0, 21, 1); 
+	i = ft_printf("%010.0d\n", UINT_MAX);
+	j = printf("%010.0d\n", UINT_MAX); 
 	printf("\nEXPECTED : %d\n", j);
 	printf("YOU : %d\n", i);
 	
