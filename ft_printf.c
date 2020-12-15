@@ -6,90 +6,82 @@
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 15:36:31 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/14 16:46:50 by ldevilla         ###   ########lyon.fr   */
+/*   Updated: 2020/12/15 10:28:33 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_analyse(Data *Values, va_list ap)
+void	ft_analyse(t_struct *t_values, va_list ap)
 {
-	if (Values->type == 'c')
-		ft_print_c(Values, va_arg(ap, int));
-	else if (Values->type == '%')
-		ft_print_pourcent(Values);
-	else if (Values->type == 's')
-		ft_print_str(Values, va_arg(ap, char *));
-	/*else if (Values->type == 'd' || Values->type == 'i')
-		ft_print_d(Values, va_arg(ap, int));*/
+	if (t_values->type == 'c')
+		ft_print_c(t_values, va_arg(ap, int));
+	else if (t_values->type == '%')
+		ft_print_pourcent(t_values);
+	else if (t_values->type == 's')
+		ft_print_str(t_values, va_arg(ap, char *));
+	else if (t_values->type == 'd' || t_values->type == 'i')
+		ft_print_d(t_values, va_arg(ap, int));
 }
 
-void    ft_pars(Data *Values, va_list ap, char *str)
+void	ft_pars(t_struct *t_values, va_list ap, char *str)
 {
-    int i;
+	int i;
 
-    i = Values->i;
-    ft_struct_reinit(Values);
-    while (!ft_ccheck("cspdiuxX%", str[i]))
+	i = t_values->i;
+	ft_struct_reinit(t_values);
+	while (!ft_ccheck("cspdiuxX%", str[i]))
 	{
-		if (str[i] == '0' && Values->width == 0 && Values->minus == 0)
-			Values->zero = 1;
+		if (str[i] == '0' && t_values->width == 0 && t_values->minus == 0)
+			t_values->zero = 1;
 		if (str[i] == '.')
-			i += ft_init_dot(&str[i], Values, ap);
+			i += ft_init_dot(&str[i], t_values, ap);
 		if (str[i] == '-')
-        {
-            Values->minus = 1;
-            Values->zero = 0;
-        }
+			ft_init_minus(t_values);
 		if (str[i] == '*')
-			ft_init_star(ap, Values);
+			ft_init_star(ap, t_values);
 		if (ft_isdigit(str[i]))
-			ft_init_digit(str[i], Values);
+			ft_init_digit(str[i], t_values);
 		if (ft_ccheck("cspdiuxX%", str[i]))
 		{
-			Values->type = str[i];
-			break;
+			t_values->type = str[i];
+			break ;
 		}
 		i++;
 	}
-	Values->i = i;
-    Values->type = str[i];
+	t_values->i = i;
+	t_values->type = str[i];
 }
 
-int	ft_printf(const char *str, ...)
+int		ft_printf(const char *str, ...)
 {
-	va_list ap;
-    Data Values;
+	va_list		ap;
+	t_struct	t_values;
 
-    ft_struct_init(&Values);
+	ft_struct_init(&t_values);
 	va_start(ap, str);
 	if (!str)
 		return (-1);
-	while (str[Values.i])
+	while (str[t_values.i])
 	{
-		if (str[Values.i] == '%' && str[Values.i + 1])
+		if (str[t_values.i] == '%' && str[t_values.i + 1])
 		{
-            Values.i++;
-            ft_pars(&Values, ap, (char *)str);
-            //ft_print_struct(&Values);
-			if (ft_ccheck("cspdiuxX%", str[Values.i]))
-				ft_analyse(&Values, ap);
+			t_values.i++;
+			ft_pars(&t_values, ap, (char *)str);
+			if (ft_ccheck("cspdiuxX%", str[t_values.i]))
+				ft_analyse(&t_values, ap);
 			else
-			{
-				ft_putchar(str[Values.i++]);
-            	Values.print++;
-			}
+				ft_putchar_print(str[t_values.i++], &t_values);
 		}
 		else
-        {
-            ft_putchar(str[Values.i++]);
-            Values.print++;
-        }
-	}	
-    //ft_print_struct(&Values);
+			ft_putchar_print(str[t_values.i++], &t_values);
+	}
 	va_end(ap);
-	return (Values.print);
+	return (t_values.print);
 }
+
+
+
 /*
 int	main(int ac, char **av)
 {
@@ -98,8 +90,8 @@ int	main(int ac, char **av)
 	int i;
 	int j;
 	
-	i = ft_printf("%s", "0");
-	j = printf("%s", "0"); 
+	i = ft_printf(" %-3.s \n", NULL);
+	j = printf(" %-3.s \n", NULL); 
 	printf("\nEXPECTED : %d\n", j);
 	printf("YOU : %d\n", i);
 	
