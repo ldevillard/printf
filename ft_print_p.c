@@ -6,7 +6,7 @@
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 12:56:09 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/16 13:18:39 by ldevilla         ###   ########lyon.fr   */
+/*   Updated: 2020/12/16 14:34:27 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,18 +55,24 @@ static void		ft_minus(t_struct *t_values, char *tmp, unsigned long nbr)
 		ft_print_u_utils(t_values, tmp);
 }
 
-void			ft_print_p(t_struct *t_values, unsigned long nbr)
+static	void	ft_low_hexa(char *tmp)
 {
-	char *tmp;
 	int i;
 
 	i = 0;
-	tmp = ft_convert_base(nbr, 16);
 	while (tmp[i])
 	{
 		tmp[i] = ft_tolower(tmp[i]);
 		i++;
 	}
+}
+
+void			ft_print_p(t_struct *t_values, unsigned long nbr)
+{
+	char *tmp;
+
+	tmp = ft_convert_base_u(nbr, 16);
+	ft_low_hexa(tmp);
 	tmp = ft_strjoin_free("0x", tmp);
 	if (t_values->minus)
 		ft_minus(t_values, tmp, nbr);

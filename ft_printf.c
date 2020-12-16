@@ -6,7 +6,7 @@
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 15:36:31 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/16 13:23:07 by ldevilla         ###   ########lyon.fr   */
+/*   Updated: 2020/12/16 14:35:41 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_analyse(t_struct *t_values, va_list ap)
 	else if (t_values->type == 'x')
 		ft_print_lowx(t_values, va_arg(ap, unsigned int));
 	else if (t_values->type == 'p')
-		ft_print_p(t_values, va_arg(ap, unsigned int));
+		ft_print_p(t_values, va_arg(ap, unsigned long));
 }
 
 void	ft_pars(t_struct *t_values, va_list ap, char *str)
@@ -78,7 +78,6 @@ int		ft_printf(const char *str, ...)
 		{
 			t_values.i++;
 			ft_pars(&t_values, ap, (char *)str);
-			//ft_print_struct(&t_values);
 			if (ft_ccheck("cspdiuxX%", str[t_values.i]))
 				ft_analyse(&t_values, ap);
 			else
@@ -89,21 +88,4 @@ int		ft_printf(const char *str, ...)
 	}
 	va_end(ap);
 	return (t_values.print);
-}
-
-
-
-int	main(int ac, char **av)
-{
-	(void)ac;
-	(void)av;
-	int i;
-	int j;
-
-	i = ft_printf("%-5%\n");
-	j = printf("%-5%\n");
-	printf("\nEXPECTED : %d\n", j);
-	printf("YOU : %d\n", i);
-	
-	return (0);
 }
