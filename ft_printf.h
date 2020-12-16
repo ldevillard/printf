@@ -6,7 +6,7 @@
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 15:24:41 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/15 14:50:32 by ldevilla         ###   ########lyon.fr   */
+/*   Updated: 2020/12/16 13:16:57 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,13 @@ void			ft_putstr_l(char *str, int lengt);
 void			ft_putchar_print(char c, t_struct *t_values);
 void			ft_init_minus(t_struct *t_values);
 void			ft_print_d(t_struct *t_values, int nbr);
+void			ft_print_d_utils(t_struct *t_values, char *tmp);
+void			ft_print_d_utils_minus(t_struct *t_values, char *tmp);
+void			ft_print_u(t_struct *t_values, unsigned int nbr);
+char			*ft_convert_base(unsigned int nbr, int base);
+void			ft_print_x(t_struct *t_values, unsigned int nbr);
+void			ft_print_lowx(t_struct *t_values, unsigned int nbr);
+void			ft_print_p(t_struct *t_values, unsigned long nbr);
+char			*ft_strjoin_free(char const *s1, char const *s2);
 
 #endif

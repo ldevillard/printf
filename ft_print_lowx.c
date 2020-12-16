@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_x.c                                       :+:      :+:    :+:   */
+/*   ft_print_lowx.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/16 11:01:14 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/16 12:21:16 by ldevilla         ###   ########lyon.fr   */
+/*   Created: 2020/12/16 12:28:48 by ldevilla          #+#    #+#             */
+/*   Updated: 2020/12/16 12:41:20 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,18 @@ static void		ft_minus(t_struct *t_values, char *tmp, unsigned int nbr)
 		ft_print_u_utils(t_values, tmp);
 }
 
-void	ft_print_x(t_struct *t_values, unsigned int nbr)
+void	ft_print_lowx(t_struct *t_values, unsigned int nbr)
 {
 	char *tmp;
+	int i;
 
+	i = 0;
 	tmp = ft_convert_base(nbr, 16);
+	while (tmp[i])
+	{
+		tmp[i] = ft_tolower(tmp[i]);
+		i++;
+	}	
 	if (t_values->minus)
 		ft_minus(t_values, tmp, nbr);
 	else

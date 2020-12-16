@@ -6,12 +6,12 @@
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 12:11:07 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/16 10:46:47 by ldevilla         ###   ########lyon.fr   */
+/*   Updated: 2020/12/16 13:14:12 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
+/*
 void	ft_print_struct(t_struct *t_values)
 {
 	ft_putchar('\n');
@@ -46,7 +46,7 @@ void	ft_print_struct(t_struct *t_values)
 	ft_putstr(t_values->tmp);
 	ft_putchar('\n');
 }
-
+*/
 void	ft_putstr_l(char *str, int lengt)
 {
 	int i;
@@ -102,4 +102,34 @@ void	ft_print_d_utils(t_struct *t_values, char *tmp)
 		ft_putstr(tmp + 1);
 		t_values->print += ft_strlen(tmp) - 1;
 	}
+}
+
+char	*ft_strjoin_free(char const *s1, char const *s2)
+{
+	unsigned int	i;
+	unsigned int	j;
+	unsigned int	size;
+	char			*str;
+
+	i = 0;
+	j = 0;
+	if (!s1 || !s2)
+		return (NULL);
+	size = ft_strlen(s1) + ft_strlen(s2);
+	str = malloc(sizeof(char) * (size + 1));
+	if (!str)
+		return (NULL);
+	while (j < ft_strlen(s1))
+	{
+		str[j] = s1[j];
+		j++;
+	}
+	while (i < ft_strlen(s2))
+	{
+		str[j + i] = s2[i];
+		i++;
+	}
+	free((char *)s2);
+	str[size] = '\0';
+	return (str);
 }

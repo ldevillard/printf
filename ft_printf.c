@@ -6,7 +6,7 @@
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 15:36:31 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/16 11:08:17 by ldevilla         ###   ########lyon.fr   */
+/*   Updated: 2020/12/16 13:23:07 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,14 @@ void	ft_analyse(t_struct *t_values, va_list ap)
 		ft_print_d(t_values, va_arg(ap, int));
 	else if (t_values->type == 'u')
 		ft_print_u(t_values, va_arg(ap, unsigned int));
+	else if (t_values->type == 'X')
+		ft_print_x(t_values, va_arg(ap, unsigned int));
+	else if (t_values->type == 'x')
+		ft_print_lowx(t_values, va_arg(ap, unsigned int));
+	else if (t_values->type == 'x')
+		ft_print_lowx(t_values, va_arg(ap, unsigned int));
+	else if (t_values->type == 'p')
+		ft_print_p(t_values, va_arg(ap, unsigned int));
 }
 
 void	ft_pars(t_struct *t_values, va_list ap, char *str)
@@ -85,18 +93,17 @@ int		ft_printf(const char *str, ...)
 
 
 
-/*
 int	main(int ac, char **av)
 {
 	(void)ac;
 	(void)av;
 	int i;
 	int j;
-	
-	i = ft_printf("%010x\n",10) ;
-	j = printf("%010.5x\n", 10); 
+
+	i = ft_printf("%-5%\n");
+	j = printf("%-5%\n");
 	printf("\nEXPECTED : %d\n", j);
 	printf("YOU : %d\n", i);
 	
 	return (0);
-}*/
+}

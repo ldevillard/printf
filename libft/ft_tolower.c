@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldevilla <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 12:05:00 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/11/24 12:05:41 by ldevilla         ###   ########lyon.fr   */
+/*   Updated: 2020/12/16 12:40:31 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 int		ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
