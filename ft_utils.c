@@ -6,7 +6,7 @@
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 12:11:07 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/16 09:25:13 by ldevilla         ###   ########lyon.fr   */
+/*   Updated: 2020/12/16 10:46:47 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,5 @@ void	ft_print_d_utils(t_struct *t_values, char *tmp)
 		ft_width(t_values->dot, ft_strlen(tmp) - 1, 1, t_values);
 		ft_putstr(tmp + 1);
 		t_values->print += ft_strlen(tmp) - 1;
-	}	
+	}
 }

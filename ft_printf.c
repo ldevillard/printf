@@ -6,7 +6,7 @@
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 15:36:31 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/15 14:51:52 by ldevilla         ###   ########lyon.fr   */
+/*   Updated: 2020/12/16 11:08:17 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	ft_analyse(t_struct *t_values, va_list ap)
 		ft_print_str(t_values, va_arg(ap, char *));
 	else if (t_values->type == 'd' || t_values->type == 'i')
 		ft_print_d(t_values, va_arg(ap, int));
+	else if (t_values->type == 'u')
+		ft_print_u(t_values, va_arg(ap, unsigned int));
 }
 
 void	ft_pars(t_struct *t_values, va_list ap, char *str)
@@ -91,8 +93,8 @@ int	main(int ac, char **av)
 	int i;
 	int j;
 	
-	i = ft_printf("%010.0d\n", UINT_MAX);
-	j = printf("%010.0d\n", UINT_MAX); 
+	i = ft_printf("%010x\n",10) ;
+	j = printf("%010.5x\n", 10); 
 	printf("\nEXPECTED : %d\n", j);
 	printf("YOU : %d\n", i);
 	

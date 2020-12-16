@@ -6,7 +6,7 @@
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 12:09:07 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/16 09:35:13 by ldevilla         ###   ########lyon.fr   */
+/*   Updated: 2020/12/16 10:34:30 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void		ft_utils(t_struct *t_values, char *tmp)
 		ft_width(t_values->width, ft_strlen(tmp), 0, t_values);
 		t_values->print += ft_strlen(tmp);
 	}
-	else if (t_values->zero)
+	else if (t_values->zero && !(t_values->has_dot))
 	{
 		ft_width(t_values->width, ft_strlen(tmp), 1, t_values);
 		ft_putstr(tmp);
@@ -49,16 +49,15 @@ static	void	ft_d_zero(t_struct *t_values, int nbr, char *tmp)
 			ft_putchar_print('-', t_values);
 			ft_width(t_values->width, ft_strlen(tmp), 1, t_values);
 			ft_putstr(tmp + 1);
-			t_values->print += ft_strlen(tmp) - 1;	
+			t_values->print += ft_strlen(tmp) - 1;
 		}
 	}
-	else 
+	else
 		ft_utils(t_values, tmp);
 }
 
 static	void	ft_d_minus(t_struct *t_values, int nbr, char *tmp)
 {
-	
 	if (!(t_values->dot) && nbr == 0)
 		ft_width(t_values->width, t_values->dot, 0, t_values);
 	else if (nbr < 0)
@@ -72,14 +71,13 @@ static	void	ft_d_minus(t_struct *t_values, int nbr, char *tmp)
 		else
 			ft_width(t_values->width, ft_strlen(tmp), 0, t_values);
 		t_values->print += ft_strlen(tmp);
-		
 	}
 }
 
 static	void	ft_d(t_struct *t_values, char *tmp, int nbr)
-{	
+{
 	if (nbr < 0)
-			ft_print_d_utils(t_values, tmp);
+		ft_print_d_utils(t_values, tmp);
 	else
 	{
 		if ((int)ft_strlen(tmp) < t_values->dot)
@@ -92,7 +90,7 @@ static	void	ft_d(t_struct *t_values, char *tmp, int nbr)
 	}
 }
 
-void	ft_print_d(t_struct *t_values, int nbr)
+void			ft_print_d(t_struct *t_values, int nbr)
 {
 	char	*tmp;
 

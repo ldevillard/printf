@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_pourcent.c                                :+:      :+:    :+:   */
+/*   ft_print_x.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/14 13:16:52 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/16 09:49:03 by ldevilla         ###   ########lyon.fr   */
+/*   Created: 2020/12/16 11:01:14 by ldevilla          #+#    #+#             */
+/*   Updated: 2020/12/16 11:08:16 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+/*#include "ft_printf.h"
 
-void	ft_print_pourcent(t_struct *t_values)
+void	ft_print_x(t_struct *t_values, unsigned int nbr)
 {
-	if (t_values->minus)
-	{
-		ft_putchar('%');
-		t_values->print++;
-		t_values->i++;
-	}
-	ft_width(t_values->width, 1, t_values->zero, t_values);
-	if (!t_values->minus)
-	{
-		ft_putchar('%');
-		t_values->print++;
-		t_values->i++;
-	}
-}
+
+}*/
