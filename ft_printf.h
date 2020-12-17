@@ -6,7 +6,7 @@
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 15:24:41 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/16 13:26:41 by ldevilla         ###   ########lyon.fr   */
+/*   Updated: 2020/12/17 15:32:14 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,6 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include "libft/libft.h"
-# include <stdbool.h>
-# include <stdio.h>
-# include <limits.h>
 
 typedef struct	s_struct
 {
