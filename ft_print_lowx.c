@@ -6,7 +6,7 @@
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 12:28:48 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/16 14:24:26 by ldevilla         ###   ########lyon.fr   */
+/*   Updated: 2020/12/17 13:11:54 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,19 @@ static	void	ft_low_hexa(char *tmp)
 	}
 }
 
+static void		ft_print_dot(t_struct *t_values, char *tmp)
+{
+	if ((int)ft_strlen(tmp) < t_values->dot)
+		ft_width(t_values->width, t_values->dot, 0, t_values);
+	else if (t_values->width > t_values->dot && t_values->dot > 0)
+		ft_width(t_values->width, ft_strlen(tmp), 0, t_values);
+	else
+		ft_width(t_values->width, ft_strlen(tmp), t_values->zero, t_values);
+	ft_width(t_values->dot, ft_strlen(tmp), 1, t_values);
+	ft_putstr(tmp);
+	t_values->print += ft_strlen(tmp);
+}
+
 void			ft_print_lowx(t_struct *t_values, unsigned int nbr)
 {
 	char *tmp;
@@ -80,15 +93,7 @@ void			ft_print_lowx(t_struct *t_values, unsigned int nbr)
 		if (!(t_values->dot) && t_values->has_dot && nbr == 0)
 			ft_width(t_values->width, t_values->dot, 0, t_values);
 		else if (t_values->dot)
-		{
-			if ((int)ft_strlen(tmp) < t_values->dot)
-				ft_width(t_values->width, t_values->dot, 0, t_values);
-			else
-				ft_width(t_values->width, ft_strlen(tmp), 0, t_values);
-			ft_width(t_values->dot, ft_strlen(tmp), 1, t_values);
-			ft_putstr(tmp);
-			t_values->print += ft_strlen(tmp);
-		}
+			ft_print_dot(t_values, tmp);
 		else
 			ft_print_u_utils(t_values, tmp);
 	}

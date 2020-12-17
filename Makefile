@@ -15,7 +15,8 @@ SRCS =  ft_printf.c \
 		ft_flags.c \
 		ft_struct_init.c \
 		ft_utils.c \
-		ft_width.c  
+		ft_width.c \
+		ft_print_d_utils.c
 
 CC = gcc
 

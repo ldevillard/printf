@@ -6,7 +6,7 @@
 /*   By: ldevilla <ldevilla@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 12:09:07 by ldevilla          #+#    #+#             */
-/*   Updated: 2020/12/16 10:34:30 by ldevilla         ###   ########lyon.fr   */
+/*   Updated: 2020/12/17 12:32:08 by ldevilla         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,10 @@ static	void	ft_d(t_struct *t_values, char *tmp, int nbr)
 	{
 		if ((int)ft_strlen(tmp) < t_values->dot)
 			ft_width(t_values->width, t_values->dot, 0, t_values);
-		else
+		else if (t_values->width > t_values->dot && t_values->dot > 0)
 			ft_width(t_values->width, ft_strlen(tmp), 0, t_values);
+		else
+			ft_width(t_values->width, ft_strlen(tmp), t_values->zero, t_values);
 		ft_width(t_values->dot, ft_strlen(tmp), 1, t_values);
 		ft_putstr(tmp);
 		t_values->print += ft_strlen(tmp);
